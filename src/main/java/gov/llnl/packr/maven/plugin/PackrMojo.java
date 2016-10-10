@@ -1,8 +1,12 @@
 package gov.llnl.packr.maven.plugin;
 
+import com.badlogicgames.packr.Packr;
 import com.badlogicgames.packr.PackrConfig;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -28,7 +32,7 @@ public class PackrMojo extends AbstractMojo {
      * ZIP file location to an Oracle JDK build containing a JRE.
      */
     @Parameter(property = "packr.jdk")
-    public File jdk;
+    public String jdk;
 
     /**
      * Name of the native executable, without extension such as ".exe"
@@ -111,7 +115,45 @@ public class PackrMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException {
-        getLog().info("Hello, world.");
+        getLog().info("Starting Packr plugin...\n" + this.toString());
+
+        if (this.jsonConfig != null && this.jsonConfig.exists()) {
+            //get values from JSON
+            getLog().info("Using values from JSON configuration file.");
+        } else {
+            PackrConfig config = new PackrConfig();
+            config.platform = this.platform;
+
+            config.jdk = this.jdk;
+            File fleJdk = new File(jdk);
+            if (this.jdk == null || !fleJdk.exists() || fleJdk.isDirectory()) {
+                throw new MojoExecutionException("Invalid JDK path provided. This path should be a ZIP file of a JDK directory.");
+            }
+
+            config.executable = this.executable;
+            config.classpath = this.classpath;
+
+            config.mainClass = this.mainClass;
+            if (this.mainClass.contains(".") == false) {
+                throw new MojoExecutionException("Main class must contain at least one '.'. Please provide the fully qualified path to the main class.");
+            }
+
+            config.vmArgs = this.vmArgs;
+            config.minimizeJre = this.minimizeJre;
+            config.outDir = this.outDir;
+
+            try {
+                new Packr().pack(config);
+                getLog().info("Successfully wrote the application installer!");
+            } catch (Exception e) {
+                getLog().error("Error creating installation bundle!", e);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "PackrMojo{" + "platform=" + platform + ", jdk=" + jdk + ", executable=" + executable + ", classpath=" + classpath + ", mainClass=" + mainClass + ", vmArgs=" + vmArgs + ", minimizeJre=" + minimizeJre + ", resources=" + resources + ", outDir=" + outDir + ", iconResource=" + iconResource + ", bundleIdentifier=" + bundleIdentifier + ", jsonConfig=" + jsonConfig + ", verbose=" + verbose + '}';
     }
 
 }
