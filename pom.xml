@@ -4,46 +4,20 @@
     
     <groupId>gov.llnl</groupId>    
     <artifactId>packr-maven-plugin</artifactId>
-    <version>1.0</version>
+    <version>1.0</version>    
+    <packaging>maven-plugin</packaging>     
     
-    <packaging>maven-plugin</packaging>
-    
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>libs-release</name>
-            <url>http://bedrock.llnl.gov:8081/artifactory/libs-release</url>
-        </repository>
-        <repository>
-            <snapshots />
-            <id>snapshots</id>
-            <name>libs-snapshot</name>
-            <url>http://bedrock.llnl.gov:8081/artifactory/libs-snapshot</url>
-        </repository>
-    </repositories>
-    
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>plugins-release</name>
-            <url>http://bedrock.llnl.gov:8081/artifactory/plugins-release</url>
-        </pluginRepository>
-        <pluginRepository>
-            <snapshots />
-            <id>snapshots</id>
-            <name>plugins-snapshot</name>
-            <url>http://bedrock.llnl.gov:8081/artifactory/plugins-snapshot</url>
-        </pluginRepository>
-    </pluginRepositories>  
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>        
+        <packr.version>2.0</packr.version>
+    </properties>
     
     <build>
-        <!-- From: http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/using-annotations.html -->
+        <!-- From: 
+        http://maven.apache.org/plugin-tools/maven-plugin-plugin/examples/using-annotations.html
+        -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -82,13 +56,8 @@
         <dependency>
             <groupId>com.badlogicgames.packr</groupId>
             <artifactId>packr</artifactId>
-            <version>2.0</version>
+            <version>${packr.version}</version>
             <type>jar</type>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
 </project>
