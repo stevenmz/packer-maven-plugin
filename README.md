@@ -14,6 +14,8 @@ The advantages of integrating the use of Packr into the Maven build, rather than
 
 This project currently builds against the latest version (v2.0) of Packr.
 
+This work was performed under the auspices of the U.S. Department of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
+
 ## Usage
 
 Users can choose to define all of the necessary configuration parameters in the Maven POM file, or they can reference OS-specific Packr configurations 
