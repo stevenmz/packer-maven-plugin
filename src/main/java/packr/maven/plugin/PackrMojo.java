@@ -25,6 +25,7 @@ import com.badlogicgames.packr.Packr;
 import com.badlogicgames.packr.PackrConfig;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -162,8 +163,24 @@ public class PackrMojo extends AbstractMojo {
         // Try to catch some conditions that will make Packr throw exceptions
         File fleJdk = new File(config.jdk);
         if (config.jdk == null || !fleJdk.exists() || fleJdk.isDirectory()) {
-            throw new MojoExecutionException("Invalid JDK path provided. This path should be a ZIP file of a JDK directory.");
+            String errorMsg = "Invalid JDK path provided. This path should be a ZIP file of a JDK directory.";
+            getLog().error(errorMsg);
+            throw new MojoExecutionException(errorMsg);
         }
+
+        // See if the user specified any non-existent locations to add to the classpath
+        List<String> validClasspathEntries = new ArrayList<>();
+        for (String cpEntry : classpath) {
+            File fleEntry = new File(cpEntry);
+            if (!fleEntry.exists()) {
+                getLog().warn(cpEntry + " is not a valid location. Entry will be removed from list of classpath entries.");
+            } else {
+                validClasspathEntries.add(cpEntry);
+            }
+        }
+        classpath.clear();
+        classpath.addAll(validClasspathEntries);
+        validClasspathEntries = null;
 
         if (this.mainClass.contains(".") == false) {
             throw new MojoExecutionException("Main class must contain at least one '.'. Please provide the fully qualified path to the main class.");

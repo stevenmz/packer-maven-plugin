@@ -48,12 +48,12 @@ public class PackrJSONCommandLine implements PackrCommandLine {
 
     @Override
     public String bundleIdentifier() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public List<String> classpath() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
@@ -63,17 +63,17 @@ public class PackrJSONCommandLine implements PackrCommandLine {
 
     @Override
     public String executable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public boolean help() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public File iconResource() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
@@ -83,42 +83,42 @@ public class PackrJSONCommandLine implements PackrCommandLine {
 
     @Override
     public String jdk() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public String mainClass() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public String minimizeJre() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public File outDir() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public String platform() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public List<File> resources() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public boolean verbose() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
     @Override
     public List<String> vmArgs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("No plan to implement.");
     }
 
 }
