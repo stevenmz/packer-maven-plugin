@@ -133,6 +133,65 @@ Notice that the platform element has different valid values than the POM does. F
 }
 ```
 
+## Integration with Contineous Integration Servers (like Jenkins)
+If you only want the installation packages built when you specifically call for it, instead of with every build like the configuration above does,
+then you can define a Maven profile like this:
+```xml
+<profiles>
+	<profile>
+		<id>build-installers</id>
+		<build>
+			<plugins>
+				<!-- Create an app bundle using the LLNL Packr plugin -->
+				<plugin>
+					<groupId>gov.llnl</groupId>    
+					<artifactId>packr-maven-plugin</artifactId>
+					<version>1.0</version>
+					<executions>
+						<execution>
+							<phase>install</phase>
+							<goals>
+								<goal>packr</goal>
+							</goals>
+							<configuration>
+								<!-- Valid platform values are: MacOS, Linux32, Linux64, Windows32, Windows64 -->
+								<platform>MacOS</platform>
+								<!-- Change this JDK path to match your system and version -->
+								<jdk>/Library/java/jdk1_8.0_101_OSX.zip</jdk>
+								<!-- This is the name of the resulting executable inside the installer package -->
+								<executable>OurApp</executable>
+								<!-- Things to include on the classpath when the executable (JRE) runs. -->
+								<classpath>
+									<param>target/our_app.jar</param>
+								</classpath>
+								<!-- Fully qualified class name. Must contain at least one period. -->
+								<mainClass>gov.llnl.OurApp</mainClass>
+								<!-- Arguments to the JRE without the leading dash -->
+								<vmArgs>
+									<param>Xms500m</param>
+									<param>Xmx1024m</param>
+								</vmArgs>
+								<!-- These resource will be placed alongside your jar in the resulting install package -->
+								<resources>
+									<param>src/main/resources/</param>
+								</resources>
+								<!-- For OS X make sure to include the .app -->
+								<outDir>target/OurSoftwareName.app</outDir>
+								<verbose>true</verbose>
+								<!-- OS X only: Path to the icon set to use for the application bundle -->
+								<iconResource>src/main/resources/myIcon.icns</iconResource>
+								<!-- OS X only: Unique bundle identifier -->
+								<bundleIdentifier>gov.llnl.OurApp</bundleIdentifier>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+</profiles>
+```
+
 ## License
 Copyright 2016 Lawrence Livermore National Laboratory
 
