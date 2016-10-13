@@ -46,19 +46,19 @@ public class PackrMojo extends AbstractMojo {
      * The bundle identifier of your Java application, e.g. "com.my.app". This
      * is for OS X targets (see {@link Platform#MacOS} ).
      */
-    @Parameter(property = "bundleIdentifier")
+    @Parameter
     private String bundleIdentifier;
 
     /**
      * list of file locations of the JAR files to package
      */
-    @Parameter(property = "classpath")
+    @Parameter
     private List<String> classpath;
 
     /**
      * Name of the native executable, without extension such as ".exe"
      */
-    @Parameter(property = "executable")
+    @Parameter
     private String executable;
 
     /**
@@ -67,12 +67,12 @@ public class PackrMojo extends AbstractMojo {
      *
      * @see Platform
      */
-    @Parameter(property = "iconResource")
+    @Parameter
     private File iconResource;
     /**
      * ZIP file location to an Oracle JDK build containing a JRE.
      */
-    @Parameter(property = "jdk")
+    @Parameter
     private String jdk;
     /**
      * You can put all the command line arguments into a JSON file. The JSON, if
@@ -81,14 +81,14 @@ public class PackrMojo extends AbstractMojo {
      * Typically, you either specify JSON or you specify the configuration
      * parameters manually.
      */
-    @Parameter(property = "jsonConfig")
+    @Parameter
     private File jsonConfig;
 
     /**
      * The fully qualified name of the main class, using dots to delimit package
      * names
      */
-    @Parameter(property = "mainClass")
+    @Parameter
     private String mainClass;
 
     /**
@@ -96,27 +96,27 @@ public class PackrMojo extends AbstractMojo {
      * additional config file. Comes with a 'soft' and 'hard' configurations out
      * of the box.
      */
-    @Parameter(property = "minimizeJre")
+    @Parameter
     private String minimizeJre;
 
     /**
      * The output directory.
      */
-    @Parameter(property = "outDir")
+    @Parameter
     private File outDir;
 
     /**
      * Defines the platform target for which to build an installer package. One
      * of "Windows32", "Windows64", "Linux32", "Linux64", "MacOS"
      */
-    @Parameter(property = "platform")
+    @Parameter
     private PackrConfig.Platform platform;
 
     /**
      * list of files and directories to be packaged next to the native
      * executable.
      */
-    @Parameter(property = "resources")
+    @Parameter
     private List<File> resources;
 
     /**
@@ -125,10 +125,11 @@ public class PackrMojo extends AbstractMojo {
      */
     @Parameter(property = "verbose", defaultValue = "true")
     private boolean verbose;
+
     /**
      * List of arguments for the JVM, without leading dashes, e.g. "Xmx1G"
      */
-    @Parameter(property = "vmArgs")
+    @Parameter
     private List<String> vmArgs;
 
     @Override
