@@ -137,6 +137,11 @@ public class PackrMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException {
         getLog().info("Starting packr-maven-plugin...");
 
+        // toString outputs the fields as a json object. Can be useful for debugging.
+        if (this.verbose) {
+            getLog().info(this.toString());
+        }
+
         PackrConfig config = null;
         if (this.jsonConfig != null && this.jsonConfig.exists()) {
             //get values from JSON
