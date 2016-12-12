@@ -133,7 +133,7 @@ Notice that the platform element has different valid values than the POM does. F
 }
 ```
 
-## Integration with Contineous Integration Servers (like Jenkins)
+## Integration with Continuous Integration Servers (like Jenkins)
 If you only want the installation packages built when you specifically call for it, instead of with every build like the configuration above does,
 then you can define a Maven profile like this:
 ```xml
@@ -191,6 +191,9 @@ then you can define a Maven profile like this:
 	</profile>
 </profiles>
 ```
+
+Now when you build your project, include the ```-P build-installers``` option to ensure the plugin in invoked. This way, developers are not 
+bothered with longer builds when they do not need the installers created.
 
 ## License
 Copyright 2016 Lawrence Livermore National Laboratory
