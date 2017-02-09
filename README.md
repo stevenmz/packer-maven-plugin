@@ -12,7 +12,7 @@ The advantages of integrating the use of Packr into the Maven build, rather than
    * You get to reuse an existing workspace saving disk space and eliminating a redundant build 
    * Fewer projects to track and maintain in automated build systems like Jenkins
 
-This project currently builds against the latest version (v2.0) of Packr.
+This project currently builds against v2.0 of Packr.
 
 This work was performed under the auspices of the U.S. Department of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
 
@@ -196,6 +196,10 @@ Now when you build your project, include the ```-P build-installers``` option to
 bothered with longer builds when they do not need the installers created.
 
 ## License
+LLNL-CODE-722204
+
+This work was performed under the auspices of the U.S. Department of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.
+
 Copyright 2016 Lawrence Livermore National Laboratory
 
 Licensed under the Apache License, Version 2.0 (the "License");
