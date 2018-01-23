@@ -36,92 +36,101 @@ import java.util.List;
  */
 public class PackrJSONCommandLine implements PackrCommandLine {
 
-    private final File jsonConfig;
+	private final File jsonConfig;
 
-    /**
-     * Constructs a Packr command line options object that points to a JSON file
-     * containing the configuration for assembling an installation package.
-     *
-     * @param jsonConfig A valid java.io.File object pointing to a JSON
-     * configuration.
-     */
-    public PackrJSONCommandLine(File jsonConfig) {
-        this.jsonConfig = jsonConfig;
-    }
+	/**
+	 * Constructs a Packr command line options object that points to a JSON file
+	 * containing the configuration for assembling an installation package.
+	 *
+	 * @param jsonConfig
+	 *            A valid java.io.File object pointing to a JSON configuration.
+	 */
+	public PackrJSONCommandLine(File jsonConfig) {
+		this.jsonConfig = jsonConfig;
+	}
 
-    @Override
-    public String bundleIdentifier() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String bundleIdentifier() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public List<String> classpath() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public List<String> classpath() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public File config() {
-        return jsonConfig;
-    }
+	@Override
+	public File config() {
+		return jsonConfig;
+	}
 
-    @Override
-    public String executable() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String executable() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public boolean help() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public boolean help() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public File iconResource() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public File iconResource() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public boolean isConfig() {
-        return true;
-    }
+	@Override
+	public boolean isConfig() {
+		return true;
+	}
 
-    @Override
-    public String jdk() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String jdk() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public String mainClass() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String mainClass() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public String minimizeJre() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String minimizeJre() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public File outDir() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public File outDir() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public String platform() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public String platform() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public List<File> resources() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public List<File> resources() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public boolean verbose() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public boolean verbose() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
-    @Override
-    public List<String> vmArgs() {
-        throw new UnsupportedOperationException("No plan to implement.");
-    }
+	@Override
+	public List<String> vmArgs() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 
+	@Override
+	public File cacheJre() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
+
+	@Override
+	public List<String> removePlatformLibs() {
+		throw new UnsupportedOperationException("No plan to implement.");
+	}
 }
