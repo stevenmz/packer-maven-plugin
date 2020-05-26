@@ -169,8 +169,8 @@ public class PackrMojo extends AbstractMojo {
 
         // Try to catch some conditions that will make Packr throw exceptions
         File fleJdk = new File(config.jdk);
-        if (config.jdk == null || !fleJdk.exists() || fleJdk.isDirectory()) {
-            String errorMsg = "Invalid JDK path provided. This path should be a ZIP file of a JDK directory.";
+        if (config.jdk == null || !fleJdk.exists()) {
+            String errorMsg = "Invalid JDK path provided. This path should be a ZIP file of a JDK directory, or a JDK directory.";
             getLog().error(errorMsg);
             throw new MojoExecutionException(errorMsg);
         }
@@ -218,5 +218,4 @@ public class PackrMojo extends AbstractMojo {
                 + ", jsonConfig=" + jsonConfig
                 + ", verbose=" + verbose + '}';
     }
-
 }

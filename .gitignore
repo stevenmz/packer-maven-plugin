@@ -1,1 +1,7 @@
-target
+/.classpath
+/gmap.iml
+/.idea/
+/.project
+/.settings/
+/**/*.swp
+/target/
